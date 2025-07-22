@@ -1,2 +1,2 @@
 
-export const DB_NAME = "todo-full-stack"
+export const DB_NAME = "todoFullStack";
