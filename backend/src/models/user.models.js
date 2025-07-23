@@ -15,7 +15,6 @@ const userSchema = Schema(
     email: {
       type: String,
       required: true,
-      lowercase: true,
       trim: true,
       unique: true,
     },
@@ -51,6 +50,7 @@ userSchema.methods.generateAccessToken = function () {
       _id: this._id,
       username: this.username,
       email: this.email,
+      avatar: this.avatar,
     },
     process.env.ACCESS_TOKEN_SECRET,
     {
