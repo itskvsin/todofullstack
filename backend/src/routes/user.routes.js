@@ -4,7 +4,7 @@ import {
   loginUser,
   logout,
   currentUser,
-} from "../controllers/user.controllers.js";
+} from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middleares.js";
 import { verifyJwt } from "../middlewares/auth.middlewares.js";
 

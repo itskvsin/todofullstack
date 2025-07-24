@@ -71,4 +71,14 @@ userSchema.methods.generateRefreshToken = function () {
   );
 };
 
+userSchema.virtual("tasks", {
+  ref: "Task",
+  localField: "_id",
+  foreignField: "user",
+})
+
+userSchema.set("toObject", {virtuals: true});
+userSchema.set("toJSON", {virtuals: true});
+
+
 export const User = mongoose.model("User", userSchema);
