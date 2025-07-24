@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@layer utilities {
+  .content-auto {
+    content-visibility: auto;
+  }
+}
