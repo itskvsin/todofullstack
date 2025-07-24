@@ -42,4 +42,48 @@ const getTasks = asyncHandler(async(req,res) => {
   .json(new ApiResponse(200,  userTask, "Tasks Fetched Successfully"));
 }) 
 
-export { registerTask, getTasks };
+const updateTasks = asyncHandler(async(req,res) => {
+  const {taskId} = req.params;
+  const {title, description} = req.body;
+
+  const task = await Task.findOne({
+    _id: taskId,
+    user: req.user?._id
+  })
+
+  if (!task) {
+    throw new ApiError(400, "Task not found or Unauthorized");
+  }
+
+  if(title) task.title = title
+  if(description) task.description = description
+
+  const updatedTask = await task.save();
+
+  return res
+  .status(200)
+  .json(new ApiResponse(200, updatedTask, "Task Updated Successfully"))
+
+
+})
+
+const deleteTask = asyncHandler(async(req,res) => {
+  const { taskId } = req.params;
+  const userId = req.user?._id;
+
+  const task = await Task.findOneAndDelete({
+    _id: taskId,
+    user: userId
+  })
+
+  if (!task) {
+    throw new ApiError(400, "Task not found");
+  }
+
+  return res
+  .status(200)
+  .json(new ApiResponse(200, "Task Deleted Successfully"));
+
+})
+
+export { registerTask, getTasks, updateTasks, deleteTask };
