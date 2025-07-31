@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BottomWarning from "../components/BottomWarning";
 
 const Register = () => {
 
@@ -14,7 +15,7 @@ const Register = () => {
         <div className="w-1/4">
           <form action="#" method="post" className="flex flex-col">
             <input
-              className="border-1 m-2 outline-none px-5 py-3 text-lg rounded border-gray-400"
+              className="border-1 m-2 outline-none px-5 py-3 text-lg rounded-lg border-gray-400"
               type="text"
               name="username"
               id="username"
@@ -23,7 +24,7 @@ const Register = () => {
               onChange={(e) => {setUsername(e.target.value)}}
             />
             <input
-              className="border-1 m-2 outline-none px-5 py-3 text-lg rounded border-gray-400"
+              className="border-1 m-2 outline-none px-5 py-3 text-lg rounded-lg border-gray-400"
               type="text"
               name="email"
               id="email"
@@ -31,7 +32,7 @@ const Register = () => {
               onChange={(e) => {setEmail(e.target.value)}}
             />
             <input
-              className="border-1 m-2 outline-none px-5 py-3 text-lg rounded border-gray-400"
+              className="border-1 m-2 outline-none px-5 py-3 text-lg rounded-lg border-gray-400"
               type="text"
               name="password"
               id="password"
@@ -39,7 +40,7 @@ const Register = () => {
               onChange={(e) => {setPassword(e.target.value)}}
             />
             <input
-              className="text-blue-600 outline-none my-2 px-5 py-3 text-lg rounded cursor-pointer"
+              className="text-blue-600 outline-none my-2 px-5 py-3 text-lg rounded-lg cursor-pointer"
               type="file"
               name="avatar"
               id="avatar"
@@ -47,13 +48,14 @@ const Register = () => {
             <div className="flex justify-center items-center">
               <button
                 type="submit"
-                className="border-1 bg-blue-600 text-black font-semibold text-lg px-5 cursor-pointer py-3 rounded"
+                className="border-1 bg-blue-600 text-white font-semibold text-lg px-5 cursor-pointer py-3 rounded"
                 onClick={(e) => {
                   e.preventDefault();
                   console.log(username,email,password)
                 }}
               >Register</button>
             </div>
+            <BottomWarning label={"Already Have An Account"} to={"/signin"} buttonText={"Sign In"}/>
           </form>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BottomWarning from "../components/BottomWarning";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ const Login = () => {
       <div className="w-1/4">
         <form action="#" method="post" className="flex flex-col">
           <input
-            className="border-1 m-2 outline-none px-5 py-3 text-lg rounded border-gray-400"
+            className="border-1 m-2 outline-none px-5 py-3 text-lg rounded-lg border-gray-400"
             type="text"
             name="email"
             id="email"
@@ -20,7 +21,7 @@ const Login = () => {
             }}
           />
           <input
-            className="border-1 m-2 outline-none px-5 py-3 text-lg rounded border-gray-400"
+            className="border-1 m-2 outline-none px-5 py-3 text-lg rounded-lg border-gray-400"
             type="text"
             name="password"
             id="password"
@@ -41,6 +42,7 @@ const Login = () => {
               Login
             </button>
           </div>
+          <BottomWarning label={"Don't Have An Account"} to={"/signup"} buttonText={"Sign Up"}/>
         </form>
       </div>
     </div>
